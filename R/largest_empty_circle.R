@@ -2,6 +2,7 @@
 ##' @title Calculate the largest empty circle raster
 ##' @param points sf feature of the locations of interest
 ##' @param raster raster or SpatialGridDataFrame indicating the interpolation environment
+##' @param truezero boolean; should the locations be included in the interpolation with a zero value? (default = FALSE)
 ##' @return a list containing the LEC_raster and the Nodes including the distance to the closest location
 ##' @import dplyr sf deldir gstat
 ##' @importFrom raster raster
@@ -19,9 +20,11 @@
 ##'   st_as_sf(coords = c("xUTM", "yUTM"),crs = 32634)
 ##' 
 ##' applylarge <- largest_empty_circle(locations)
-##' 
 ##' mapview(applylarge$LEC_raster)+mapview(applylarge$Nodes,zcol="mindist")+mapview(locations)
-largest_empty_circle <- function(points,raster="default"){
+##' 
+##' applylarge_truezero <- largest_empty_circle(locations,truezero=TRUE)
+##' mapview(applylarge_truezero$LEC_raster)+mapview(applylarge_truezero$Nodes,zcol="mindist")+mapview(locations)
+largest_empty_circle <- function(points,raster="default",truezero=FALSE){
   
   xdat <- sf::st_coordinates(points)[,1]
   ydat <- sf::st_coordinates(points)[,2]
@@ -46,6 +49,13 @@ largest_empty_circle <- function(points,raster="default"){
   
   if(class(raster)=="RasterLayer"){
     raster <- as(raster,"SpatialGridDataFrame")
+  }
+  
+  if(truezero){
+    dd2 <- points
+    dd2 %<>% dplyr::mutate(mindist = 0) %>% 
+      dplyr::select(mindist)
+    dd <- rbind(dd,dd2)
   }
   
   autom <- automap::autoKrige(mindist ~ 1,as(dd,"Spatial"),raster)
