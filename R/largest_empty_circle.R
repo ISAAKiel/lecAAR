@@ -1,5 +1,5 @@
 ##' This function calculates the interpolated largest empty circle raster for point distributions
-##' @title Geomorphological calculation
+##' @title Calculate the largest empty circle raster
 ##' @param points sf feature of the locations of interest
 ##' @param raster raster or SpatialGridDataFrame indicating the interpolation environment
 ##' @return a list containing the LEC_raster and the Nodes including the distance to the closest location
