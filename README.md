@@ -1,4 +1,4 @@
-# Largest Empty Circles (LEC) after Andreas Zimmermann
+# Largest Empty Circles (LEC) nach Zimmermann/Wendt (2003).
 
 Code für die Berechnung der größten leeren Kreise nach Zimmermann/Wendt (2003).  
 Das Endprodukt ist ein Schätzungswert der zu erwartenden Siedlungsanzahl. 
