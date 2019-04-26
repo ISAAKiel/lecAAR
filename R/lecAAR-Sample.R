@@ -89,20 +89,23 @@ project_CRS <- "+init=epsg:32634"
  flaechenzunahme_plot <- ggplot2::ggplot(data = flaechenzunahme, ggplot2::aes(x = level, y = quotient)) +
    ggplot2::geom_line()
  # area_zunahme_null muss dann vom Nutzer festgelegt werden!
- 
+ area_zunahme_null <- 27
  
  
 # Letztendliche Auswertung:
 
  area_value <- area[area_zunahme_null] # Fläche in m² (nehme ich an)???
- regelabstand_value <- M2 # Regelabstand in m
+ area_value*1e-6 # Fläche in km²
  
- # fläche eines hexagons mit dem regelabstand M2
+ regelabstand_value <- M2 # Regelabstand in m
+ regelabstand_value/1000 # Regelabstand in km
+ 
+ # Fläche eines Hexagons mit dem Regelabstand M2 in Metern
  area_hex <- ((M2/2)^2) * 2 * (3^0.5)
  
  # anzahl der zu erwartenden siedlungen
  expected_settlements <- area[area_zunahme_null]/area_hex
  
  # prozent der gefundenen siedlungen
- perc_found_sites <- nrow(sites)/expected_settlements 
+ perc_found_sites <- nrow(sites)/expected_settlements*100
  
