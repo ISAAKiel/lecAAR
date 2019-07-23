@@ -34,7 +34,7 @@ create_results <- function(area, max_increase, rule_distance_value_m, sites){
   
   # create dataframe
   result_table <- data.frame(area_value_km2, rule_distance_value_km, area_hex_km2, round(expected_settlements, digits = 1), round(perc_found_sites, digits = 2))
-  names(result_table) <- c("Total area in square kilometres", "Expected rule-distance in  kilometers", "Hexagon area in square kilometres", "Number of sites to be expected", "Percentage of known sites")
+  names(result_table) <- c("Total area in square kilometres", "Expected rule-distance in kilometers", "Hexagon area in square kilometres", "Number of sites to be expected", "Percentage of known sites")
   
   return(t(result_table))
   
