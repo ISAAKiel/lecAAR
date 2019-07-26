@@ -4,10 +4,10 @@
 \alias{largest_empty_circle}
 \title{Calculate the largest empty circle raster}
 \usage{
-largest_empty_circle(points, raster = "default")
+largest_empty_circle(sites_sf, raster = "default")
 }
 \arguments{
-\item{points}{sf feature of the locations of interest}
+\item{sites_sf}{sf feature of the locations of interest}
 
 \item{raster}{raster or SpatialGridDataFrame indicating the interpolation environment}
 }

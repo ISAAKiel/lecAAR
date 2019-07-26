@@ -45,8 +45,8 @@ max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps = 10){
                                   nlevels = 50)
   
   ps <- sp::SpatialPolygons(lapply(1:length(SLDF), # prepare isolines
-                               function(i) Polygons(lapply(sp::coordinates(SLDF)[[i]], 
-                                                           function(y) Polygon(y)), as.character(i)))) 
+                               function(i) sp::Polygons(lapply(sp::coordinates(SLDF)[[i]], 
+                                                           function(y) sp::Polygon(y)), as.character(i)))) 
   # there might be a problem if the circles are outside the plot? see:
   # plot(ps)
   
@@ -61,6 +61,8 @@ max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps = 10){
     level[[p3]] <- p3
   }
   area <- unlist(area)
+  usethis::use_data(area, internal = TRUE)
+  
   level <- unlist(level)
   
   flaeche_levels <- data.frame(level, area)    
@@ -85,8 +87,8 @@ max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps = 10){
                                              to = nrow(area_increase), 
                                              by = x_axis_steps)) +
     ggplot2::theme_bw() +
-    ggplot2::theme(axis.text.x = element_text(size = 12, 
-                                              angle = 90))
+    ggplot2::theme(axis.text.x = ggplot2::element_text(size = 12,
+                                                       angle = 90))
   
   return(area_increase_plot)
 }

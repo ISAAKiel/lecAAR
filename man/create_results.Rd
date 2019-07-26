@@ -4,16 +4,12 @@
 \alias{create_results}
 \title{Create results}
 \usage{
-create_results(area, max_increase, rule_distance_value_m, sites)
+create_results(max_increase, rule_distance_value_m)
 }
 \arguments{
-\item{area}{Vector of area within each isoline}
-
 \item{max_increase}{Level where the area increase has its (local) maximum. Can either be set manually or automatically by using ?TODO?}
 
-\item{sites}{SpatialPointsDataFrame of known sites}
-
-\item{M2}{Rule-distance in metres}
+\item{rule_distance_value_m}{Rule-distance in metres}
 }
 \value{
 A dataframe containing the results, such as "Total area in square kilometres", "Expected rule-distance in  kilometers", "Hexagon area in square kilometres", "Number of expected sites", and "Percentage of known sites"
@@ -23,7 +19,37 @@ This function produces the final results
 }
 \examples{
 
-create_results(area, max_increase, rule_distance_value_m, sites)
+
+# provide CRS and data
+
+project_CRS <- "+init=epsg:32634"
+sites_table <- bronze_age_fortifications
+xy <- sites_table[,c("xUTM","yUTM")]
+
+
+# 1. Create density plot
+
+density_plot_nn(project_CRS, sites_table, xy)
+
+
+# 2. look up the rule-distance from the plot and save it in the variable 'rule_distance_value_m'
+
+rule_distance_value_m <- 2500 
+
+
+# 3. Plot ratio of area increase 
+
+max_area_increase(project_CRS, sites_table, xy)
+
+
+# 4. Set the value for level of maximum area increase
+
+max_increase <- 10
+
+
+# Create table containing the results, such as "Total area in square kilometres", "Expected rule-distance in  kilometers", "Hexagon area in square kilometres", "Number of expected sites", and "Percentage of known sites"
+
+create_results(max_increase, rule_distance_value_m)
 }
 \author{
 David N. Matzig
