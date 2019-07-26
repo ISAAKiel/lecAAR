@@ -13,13 +13,13 @@
 ##' # provide CRS and data
 ##' 
 ##' project_CRS <- "+init=epsg:32634"
-##' sites_table <- read_delim("./data/raw_data/BronzeAgeFortifications.csv", delim=";")
+##' sites_table <- bronze_age_fortifications
 ##' xy <- sites_table[,c("xUTM","yUTM")]
 ##' 
 ##' 
 ##' # create density plot
 ##' 
-##' density_plot_nn(project_CRS, sites, xy, threshold, bin_width, x_axis_steps)
+##' density_plot_nn(project_CRS, sites_table, xy)
 ##' 
 ##' 
 ##' # save rule-distance in variable 'rule_distance_value_m'
@@ -28,9 +28,9 @@
 
 
 
-density_plot_nn <- function(project_CRS, sites_table, xy, threshold, bin_width, x_axis_steps){
+density_plot_nn <- function(project_CRS, sites_table, xy, threshold = 10000, bin_width = 250, x_axis_steps = 1000){
   
-  sites <- sp::SpatialPointsDataFrame(xy, sites_table, proj4string = sp::CRS(project_CRS))
+  sites <- sp::SpatialPointsDataFrame(coords = xy, data = sites_table, proj4string = sp::CRS(project_CRS))
   # sites <- sp::spTransform(sites, sp::CRS(projektion)) # ggf. möchte der Nutzer noch seine Projektion verändern?
   sites <- sp::remove.duplicates(sites)
   coordinates <- as.data.frame(sites@coords)
@@ -40,21 +40,12 @@ density_plot_nn <- function(project_CRS, sites_table, xy, threshold, bin_width, 
   nn <- sites_nn$nn.dists[, 2] # distance to 1st nearest neighbour
   nn <- sort(nn, decreasing = F)
   
-  if (!exists("threshold")) {
-    threshold = 10000
-  }
+  
   
   nn[nn >= threshold] <- NA # distances over "threshold" (in m) get removed
   
   # plot
-  if (!exists("bin_width")) {
-    bin_width = 250
-  }
-  
-  if (!exists("x_axis_steps")) {
-    x - axis_steps = 1000
-  }
-  
+
   regelabstand_plot <-
     ggplot2::ggplot(data = as.data.frame(nn), ggplot2::aes(x = nn)) +
     ggplot2::geom_density(bw = bin_width) +
@@ -64,8 +55,8 @@ density_plot_nn <- function(project_CRS, sites_table, xy, threshold, bin_width, 
                                              to = threshold,
                                              by = x_axis_steps)) +
     ggplot2::theme_bw() +
-    ggplot2::theme(axis.text.x = element_text(size = 12,
-                                              angle = 90))
+    ggplot2::theme(axis.text.x = ggplot2::element_text(size = 12,
+                                                       angle = 90))
   
   return(regelabstand_plot)
   

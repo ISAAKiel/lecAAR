@@ -14,6 +14,10 @@
 ##' sites_table <- bronze_age_fortifications
 ##' xy <- sites_table[,c("xUTM","yUTM")]
 ##' 
+##' # create density plot
+##' 
+##' density_plot_nn(project_CRS, sites, xy, threshold, bin_width, x_axis_steps)
+##' 
 ##' # Plot ratio of area increase 
 ##'
 ##' max_area_increase(project_CRS, sites_table, xy)
@@ -24,7 +28,7 @@
 ##' max_increase <- 10
 
 
-max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps){
+max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps = 10){
   # load data in the same way as in the other function
   sites <- sp::SpatialPointsDataFrame(xy, sites_table, proj4string = sp::CRS(project_CRS))
   # sites <- sp::spTransform(sites, sp::CRS(projektion)) # ggf. möchte der Nutzer noch seine Projektion verändern?
@@ -72,11 +76,6 @@ max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps){
   
   
   # manuelle/visuelle Ermittlung des "geeigneten Punkts" 
-  
-  if (!exists("x_axis_steps")) {
-    x-axis_steps = 10
-  }
-  
   area_increase_plot <- ggplot2::ggplot(data = area_increase, 
                                         ggplot2::aes(x = level, 
                                                      y = ratio)) +

@@ -4,8 +4,8 @@
 \alias{density_plot_nn}
 \title{Determine the rule-distance}
 \usage{
-density_plot_nn(project_CRS, sites_table, xy, threshold, bin_width,
-  x_axis_steps)
+density_plot_nn(project_CRS, sites_table, xy, threshold = 10000,
+  bin_width = 250, x_axis_steps = 1000)
 }
 \arguments{
 \item{project_CRS}{Coordinate Reference System of Project. Unit has to be metres.}
@@ -28,13 +28,13 @@ This function helps finding the rule-distance. It produces a SpatialPointsDatafr
 # provide CRS and data
 
 project_CRS <- "+init=epsg:32634"
-sites_table <- read_delim("./data/raw_data/BronzeAgeFortifications.csv", delim=";")
+sites_table <- bronze_age_fortifications
 xy <- sites_table[,c("xUTM","yUTM")]
 
 
 # create density plot
 
-density_plot_nn(project_CRS, sites, xy, threshold, bin_width, x_axis_steps)
+density_plot_nn(project_CRS, sites_table, xy)
 
 
 # save rule-distance in variable 'rule_distance_value_m'

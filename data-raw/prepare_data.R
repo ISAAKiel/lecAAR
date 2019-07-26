@@ -1,3 +1,3 @@
-bronze_age_fortifications <- readr::read_delim("data-raw/BronzeAgeFortifications.csv", ";")
+bronze_age_fortifications <- read.csv("data-raw/BronzeAgeFortifications.csv", sep = ";")
 
 usethis::use_data(bronze_age_fortifications)
