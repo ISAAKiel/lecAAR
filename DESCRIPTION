@@ -1,13 +1,33 @@
 Package: lecAAR
-Title: What the Package Does (One Line, Title Case)
+Title: Largest Empty Circles after Zimmermann/Wendt 2003
+Description: Approximate the number of theoretically possible archaeological sites within a region of interest using the method of largest empty circles and UTM coordinates of already known sites. 
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "David",
+    person(given = "David N.",
            family = "Matzig",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "matzigdavid@gmail.com",
            comment = c(ORCID = "0000-0001-7349-5401"))
-Description: What the package does (one paragraph).
+    person(given = "Clemens",
+           family = "Schmid",
+           role = c("aut", "cre"),
+           email = "",
+           comment = c(ORCID = ""))
+    person(given = "Nils",
+           family = "Müller-Scheeßel",
+           role = c("aut", "cre"),
+           email = "",
+           comment = c(ORCID = ""))
+    person(given = "Wolfgang",
+           family = "Hamer",
+           role = c("aut", "cre"),
+           email = "",
+           comment = c(ORCID = ""))
+    person(given = "Daniel",
+           family = "Knitter",
+           role = c("aut", "cre"),
+           email = "",
+           comment = c(ORCID = ""))
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
