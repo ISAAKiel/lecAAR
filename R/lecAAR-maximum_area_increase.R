@@ -11,8 +11,8 @@
 ##' # provide CRS and data
 ##' 
 ##' project_CRS <- "+init=epsg:32634"
-##' sites_table <- read_delim("./data/raw_data/BronzeAgeFortifications.csv", delim=";")
-##' xy <- sites[,c("xUTM","yUTM")]
+##' sites_table <- bronze_age_fortifications
+##' xy <- sites_table[,c("xUTM","yUTM")]
 ##' 
 ##' # Plot ratio of area increase 
 ##'
