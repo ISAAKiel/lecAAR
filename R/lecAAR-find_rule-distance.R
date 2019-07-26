@@ -6,9 +6,7 @@
 ##' @param threshold Threshold for nearest neighbour in metres. Default is 10000
 ##' @param bin_width Bin width for density plot. Default is 250
 ##' @param x_axis_steps Steps on x-axis in metres. Default is 500 
-##' @import sp RANN ggplot2
-##' @return 
-##' @export density_plot_nn 
+##' @export 
 ##' @author David N. Matzig
 ##' @examples
 ##' 

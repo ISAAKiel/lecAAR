@@ -5,7 +5,7 @@
 ##' @param M2 Rule-distance in metres
 ##' @param sites SpatialPointsDataFrame of known sites
 ##' @return A dataframe containing the results, such as "Total area in square kilometres", "Expected rule-distance in  kilometers", "Hexagon area in square kilometres", "Number of expected sites", and "Percentage of known sites"
-##' @export create_results 
+##' @export 
 ##' @author David N. Matzig
 ##' @examples
 ##' 

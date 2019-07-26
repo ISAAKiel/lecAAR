@@ -3,12 +3,9 @@
 ##' @param points sf feature of the locations of interest
 ##' @param raster raster or SpatialGridDataFrame indicating the interpolation environment
 ##' @return a list containing the LEC_raster and the Nodes including the distance to the closest location
-##' @import dplyr sf deldir gstat
-##' @importFrom raster raster
-##' @importFrom sp CRS
 ##' @importFrom automap autoKrige
 ##' @importFrom magrittr %>% %<>%
-##' @export largest_empty_circle
+##' @export
 ##' @author Wolfgang Hamer
 ##' @author Daniel Knitter
 ##' @examples

@@ -4,10 +4,7 @@
 ##' @param sites_table Dataframe or tibble containing individual sites in each row with two separate columns containing the coordinates
 ##' @param xy Dataframe or tibble containing the coordinates in two separate columns
 ##' @param x_axis_steps Steps on x-axis in metres. Default is 10 
-##' @import sp sf raster ggplot2
-##' @return 
-##' @import W. Hamer's and D. Knitter's function largest_empty_circle has to be imported (?)
-##' @export area Area within each isoline
+##' @export
 ##' @author David N. Matzig
 ##' @examples
 ##' 
