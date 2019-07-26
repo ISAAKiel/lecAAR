@@ -3,8 +3,6 @@
 ##' @param points sf feature of the locations of interest
 ##' @param raster raster or SpatialGridDataFrame indicating the interpolation environment
 ##' @return a list containing the LEC_raster and the Nodes including the distance to the closest location
-##' @importFrom automap autoKrige
-##' @importFrom magrittr %>% %<>%
 ##' @export
 ##' @author Wolfgang Hamer
 ##' @author Daniel Knitter
