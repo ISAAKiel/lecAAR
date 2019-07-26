@@ -1,0 +1,13 @@
+Package: lecAAR
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "David",
+           family = "Matzig",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
