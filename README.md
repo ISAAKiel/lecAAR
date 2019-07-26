@@ -34,7 +34,10 @@ max_area_increase(project_CRS, sites_table, xy)
 ```
 max_increase <- 10
 ```
-### Create table containing the results, such as "Total area in square kilometres", "Expected rule-distance in  kilometers", "Hexagon area in square kilometres", "Number of expected sites", and "Percentage of known sites"
+
+### Create table containing the results
+
+such as "Total area in square kilometres", "Expected rule-distance in  kilometers", "Hexagon area in square kilometres", "Number of expected sites", and "Percentage of known sites"
 
 ```
 create_results(max_increase, rule_distance_value_m)
