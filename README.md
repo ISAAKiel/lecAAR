@@ -1,7 +1,11 @@
-# Largest Empty Circles (LEC) nach Zimmermann/Wendt (2003).
+# Largest Empty Circles (LEC) after Zimmermann and Wendt (2003).
 
-Code für die Berechnung der größten leeren Kreise nach Zimmermann/Wendt (2003).  
-Das Endprodukt ist ein Schätzungswert der zu erwartenden Siedlungsanzahl. 
+Tool for calculating the largest empty circles and estimation of archaeological sites theoretically to be expected in region of interest. This package implements the workflow published by Zimmermann and Wendt (2003).
+
+## Method
+
+* to do
+
 
 ## Installation
 ```
