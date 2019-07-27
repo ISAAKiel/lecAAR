@@ -14,10 +14,6 @@
 ##' sites_table <- bronze_age_fortifications
 ##' xy <- sites_table[,c("xUTM","yUTM")]
 ##' 
-##' # create density plot
-##' 
-##' density_plot_nn(project_CRS, sites, xy, threshold, bin_width, x_axis_steps)
-##' 
 ##' # Plot ratio of area increase 
 ##'
 ##' max_area_increase(project_CRS, sites_table, xy)
@@ -28,7 +24,7 @@
 ##' max_increase <- 10
 
 
-max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps = 10){
+max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps){
   # load data in the same way as in the other function
   sites <- sp::SpatialPointsDataFrame(xy, sites_table, proj4string = sp::CRS(project_CRS))
   # sites <- sp::spTransform(sites, sp::CRS(projektion)) # ggf. möchte der Nutzer noch seine Projektion verändern?
@@ -61,8 +57,6 @@ max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps = 10){
     level[[p3]] <- p3
   }
   area <- unlist(area)
-  usethis::use_data(area, internal = TRUE)
-  
   level <- unlist(level)
   
   flaeche_levels <- data.frame(level, area)    
@@ -73,11 +67,16 @@ max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps = 10){
     ratio[[p0]] <- area[p0] /  area[p0+1]
   }
   ratio <- unlist(ratio)
-  level <- head(level, -1)  # -1 because both vectors have to have the same length
+  level <- utils::head(level, -1)  # -1 because both vectors have to have the same length
   area_increase <- data.frame(level, ratio) 
   
   
   # manuelle/visuelle Ermittlung des "geeigneten Punkts" 
+  
+  if (!exists("x_axis_steps")) {
+    x_axis_steps = 10
+  }
+  
   area_increase_plot <- ggplot2::ggplot(data = area_increase, 
                                         ggplot2::aes(x = level, 
                                                      y = ratio)) +
@@ -87,8 +86,8 @@ max_area_increase <- function(project_CRS, sites_table, xy, x_axis_steps = 10){
                                              to = nrow(area_increase), 
                                              by = x_axis_steps)) +
     ggplot2::theme_bw() +
-    ggplot2::theme(axis.text.x = ggplot2::element_text(size = 12,
-                                                       angle = 90))
+    ggplot2::theme(axis.text.x = ggplot2::element_text(size = 12, 
+                                              angle = 90))
   
   return(area_increase_plot)
 }

@@ -4,7 +4,7 @@
 \alias{max_area_increase}
 \title{Determine the point of maximum area increase}
 \usage{
-max_area_increase(project_CRS, sites_table, xy, x_axis_steps = 10)
+max_area_increase(project_CRS, sites_table, xy, x_axis_steps)
 }
 \arguments{
 \item{project_CRS}{Coordinate Reference System of Project. Unit has to be metres.}
@@ -25,10 +25,6 @@ This function helps finding the point of maximum area increase
 project_CRS <- "+init=epsg:32634"
 sites_table <- bronze_age_fortifications
 xy <- sites_table[,c("xUTM","yUTM")]
-
-# create density plot
-
-density_plot_nn(project_CRS, sites, xy, threshold, bin_width, x_axis_steps)
 
 # Plot ratio of area increase 
 

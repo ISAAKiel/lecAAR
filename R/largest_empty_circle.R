@@ -31,7 +31,7 @@ largest_empty_circle <- function(sites_sf,raster="default"){
     sf::st_as_sf(coords = c("x", "y"),crs = sf::st_crs(sites_sf))
   
   dd %<>% dplyr::mutate(mindist = unlist(Map(function(x){min(sf::st_distance(dd[x,],sites_sf))},x=1:nrow(dd)))) %>% 
-    dplyr::select(mindist)
+    dplyr::select(.data$mindist)
     
   if(class(raster)=="character"){
     # todo: rasterzellengroesse selectierbar
@@ -43,11 +43,11 @@ largest_empty_circle <- function(sites_sf,raster="default"){
   }
   
   if(class(raster)=="RasterLayer"){
-    raster <- as(raster,"SpatialGridDataFrame")
+    raster <- methods::as(raster,"SpatialGridDataFrame")
   }
 
   
-  autom <- automap::autoKrige(mindist ~ 1,as(dd,"Spatial"),raster)
+  autom <- automap::autoKrige(mindist ~ 1, methods::as(dd,"Spatial"),raster)
   ret <- raster::raster(autom$krige_output)
   
   return(ret)
