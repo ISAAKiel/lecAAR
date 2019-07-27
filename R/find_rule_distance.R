@@ -28,7 +28,7 @@
 
 
 
-density_plot_nn <- function(project_CRS, sites_table, xy, threshold, bin_width, x_axis_steps){
+density_plot_nn <- function(project_CRS, sites_table, xy, threshold = 10000, bin_width = 250, x_axis_steps = 1000){
   
   sites <- sp::SpatialPointsDataFrame(xy, sites_table, proj4string = sp::CRS(project_CRS))
   # sites <- sp::spTransform(sites, sp::CRS(projektion)) # ggf. möchte der Nutzer noch seine Projektion verändern?
@@ -40,20 +40,7 @@ density_plot_nn <- function(project_CRS, sites_table, xy, threshold, bin_width, 
   nn <- sites_nn$nn.dists[, 2] # distance to 1st nearest neighbour
   nn <- sort(nn, decreasing = F)
   
-  if (!exists("threshold")) {
-    threshold = 10000
-  }
-  
   nn[nn >= threshold] <- NA # distances over "threshold" (in m) get removed
-  
-  # plot
-  if (!exists("bin_width")) {
-    bin_width = 250
-  }
-  
-  if (!exists("x_axis_steps")) {
-    x - axis_steps = 1000
-  }
   
   regelabstand_plot <-
     ggplot2::ggplot(data = as.data.frame(nn), ggplot2::aes(x = nn)) +
@@ -64,7 +51,7 @@ density_plot_nn <- function(project_CRS, sites_table, xy, threshold, bin_width, 
                                              to = threshold,
                                              by = x_axis_steps)) +
     ggplot2::theme_bw() +
-    ggplot2::theme(axis.text.x = element_text(size = 12,
+    ggplot2::theme(axis.text.x = ggplot2::element_text(size = 12,
                                               angle = 90))
   
   return(regelabstand_plot)
