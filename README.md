@@ -1,3 +1,5 @@
+[![Travis-CI Build Status](https://travis-ci.org/ISAAKiel/lecAAR.svg?branch=master)](https://travis-ci.org/ISAAKiel/lecAAR)
+
 # Largest Empty Circles (LEC) after Zimmermann and Wendt.
 
 Tool for calculating the largest empty circles and estimation of archaeological sites theoretically to be expected in region of interest.  
