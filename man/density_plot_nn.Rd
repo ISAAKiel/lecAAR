@@ -4,8 +4,8 @@
 \alias{density_plot_nn}
 \title{Determine the rule-distance}
 \usage{
-density_plot_nn(project_CRS, sites_table, xy, threshold = 10000,
-  bin_width = 250, x_axis_steps = 1000)
+density_plot_nn(project_CRS, sites_table, xy, threshold, bin_width,
+  x_axis_steps)
 }
 \arguments{
 \item{project_CRS}{Coordinate Reference System of Project. Unit has to be metres.}
@@ -34,7 +34,7 @@ xy <- sites_table[,c("xUTM","yUTM")]
 
 # create density plot
 
-density_plot_nn(project_CRS, sites_table, xy)
+density_plot_nn(project_CRS, sites, xy, threshold, bin_width, x_axis_steps)
 
 
 # save rule-distance in variable 'rule_distance_value_m'

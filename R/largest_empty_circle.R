@@ -8,9 +8,9 @@
 ##' @author Daniel Knitter
 ##' @examples
 ##' library(mapview)
-##' library(readr)
 ##' library(sf)
-##' locations <- read_delim("./data/raw_data/BronzeAgeFortifications.csv", delim=";") %>% 
+##' 
+##' locations <- bronze_age_fortifications %>% 
 ##'   st_as_sf(coords = c("xUTM", "yUTM"),crs = 32634)
 ##' 
 ##' applylarge <- largest_empty_circle(locations)
