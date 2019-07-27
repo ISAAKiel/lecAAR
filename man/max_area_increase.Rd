@@ -19,21 +19,17 @@ max_area_increase(project_CRS, sites_table, xy, x_axis_steps)
 This function helps finding the point of maximum area increase
 }
 \examples{
-
 # provide CRS and data
-
 project_CRS <- "+init=epsg:32634"
 sites_table <- bronze_age_fortifications
 xy <- sites_table[,c("xUTM","yUTM")]
 
-# Plot ratio of area increase 
-
+# plot ratio of area increase 
 max_area_increase(project_CRS, sites_table, xy)
 
-
 # set value for level of maximum area increase
-
 max_increase <- 10
+
 }
 \author{
 David N. Matzig

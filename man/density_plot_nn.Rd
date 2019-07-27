@@ -24,22 +24,17 @@ density_plot_nn(project_CRS, sites_table, xy, threshold = 10000,
 This function helps finding the rule-distance. It produces a SpatialPointsDataframe, calculates the nearest neighbour distance and plots a density curve for the to determine the rule-distance.
 }
 \examples{
-
 # provide CRS and data
-
 project_CRS <- "+init=epsg:32634"
 sites_table <- bronze_age_fortifications
 xy <- sites_table[,c("xUTM","yUTM")]
-
-
+ 
 # create density plot
-
-density_plot_nn(project_CRS, sites, xy, threshold, bin_width, x_axis_steps)
-
+density_plot_nn(project_CRS, sites_table, xy)
 
 # save rule-distance in variable 'rule_distance_value_m'
-
 rule_distance_value_m <- 2500 
+
 }
 \author{
 David N. Matzig

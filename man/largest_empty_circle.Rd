@@ -22,13 +22,11 @@ library(mapview)
 library(sf)
 
 locations <- bronze_age_fortifications \%>\% 
-  st_as_sf(coords = c("xUTM", "yUTM"),crs = 32634)
+  st_as_sf(coords = c("xUTM", "yUTM"), crs = 32634)
 
 applylarge <- largest_empty_circle(locations)
-mapview(applylarge$LEC_raster)+mapview(applylarge$Nodes,zcol="mindist")+mapview(locations)
+sp::plot(applylarge)
 
-applylarge_truezero <- largest_empty_circle(locations,truezero=TRUE)
-mapview(applylarge_truezero$LEC_raster)+mapview(applylarge_truezero$Nodes,zcol="mindist")+mapview(locations)
 }
 \author{
 Wolfgang Hamer

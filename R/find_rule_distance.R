@@ -9,25 +9,17 @@
 ##' @export 
 ##' @author David N. Matzig
 ##' @examples
-##' 
 ##' # provide CRS and data
-##' 
 ##' project_CRS <- "+init=epsg:32634"
 ##' sites_table <- bronze_age_fortifications
 ##' xy <- sites_table[,c("xUTM","yUTM")]
-##' 
-##' 
+##'  
 ##' # create density plot
-##' 
-##' density_plot_nn(project_CRS, sites, xy, threshold, bin_width, x_axis_steps)
-##' 
+##' density_plot_nn(project_CRS, sites_table, xy)
 ##' 
 ##' # save rule-distance in variable 'rule_distance_value_m'
-##' 
 ##' rule_distance_value_m <- 2500 
-
-
-
+##'
 density_plot_nn <- function(project_CRS, sites_table, xy, threshold = 10000, bin_width = 250, x_axis_steps = 1000){
   
   sites <- sp::SpatialPointsDataFrame(xy, sites_table, proj4string = sp::CRS(project_CRS))
