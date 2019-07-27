@@ -1,6 +1,7 @@
-# Largest Empty Circles (LEC) after Zimmermann and Wendt (2003).
+# Largest Empty Circles (LEC) after Zimmermann and Wendt.
 
-Tool for calculating the largest empty circles and estimation of archaeological sites theoretically to be expected in region of interest. This package implements the workflow published by Zimmermann and Wendt (2003).
+Tool for calculating the largest empty circles and estimation of archaeological sites theoretically to be expected in region of interest.  
+This package is an implementation of the method published by Andreas Zimmermann and Karl Peter Wendt (Zimmermann/Wendt 2003).
 
 ## Method
 
