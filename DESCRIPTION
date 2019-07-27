@@ -3,31 +3,30 @@ Title: Largest Empty Circles after Zimmermann/Wendt 2003
 Description: Approximate the number of theoretically possible archaeological sites within a region of interest using the method of largest empty circles and UTM coordinates of already known sites. 
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "David N.",
+  c(person(given = "David N.",
            family = "Matzig",
-           role = c("aut", "cre"),
+           role = c("aut", "cre", "cph"),
            email = "matzigdavid@gmail.com",
-           comment = c(ORCID = "0000-0001-7349-5401"))
+           comment = c(ORCID = "0000-0001-7349-5401")),
     person(given = "Clemens",
            family = "Schmid",
-           role = c("aut", "cre"),
-           email = "",
-           comment = c(ORCID = ""))
+           role = c("aut"),
+           email = "clemens@nevrome.de",
+           comment = c(ORCID = "0000-0003-3448-5715")),
     person(given = "Nils",
            family = "Müller-Scheeßel",
-           role = c("aut", "cre"),
-           email = "",
-           comment = c(ORCID = ""))
+           role = c("aut"),
+           email = "nils.mueller-scheessel@ufg.uni-kiel.de",
+           comment = c(ORCID = "0000-0001-7992-8722")),
     person(given = "Wolfgang",
            family = "Hamer",
-           role = c("aut", "cre"),
-           email = "",
-           comment = c(ORCID = ""))
+           role = c("aut"),
+           email = "hamer@geographie.uni-kiel.de"),
     person(given = "Daniel",
            family = "Knitter",
-           role = c("aut", "cre"),
-           email = "",
-           comment = c(ORCID = ""))
+           role = c("aut"),
+           email = "knitter@geographie.uni-kiel.de",
+           comment = c(ORCID = "0000-0003-3014-4497")))
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
